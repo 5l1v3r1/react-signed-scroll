@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Section } from '../dist';
+import { Container, Section } from '../build';
 
 const App = () => (
 	<Container
