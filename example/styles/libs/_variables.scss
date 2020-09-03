@@ -1,0 +1,47 @@
+$misc: (
+    z-index-base: 1000,
+);
+
+$duration: (
+	menu      : 0.5s,
+	transition: 0.2s
+);
+
+$size: (
+    nav   : 3.5em,
+    footer: 6em,
+    radius: 0.3em,
+);
+
+$font: (
+    // family
+	normal            : (-apple-system, BlinkMacSystemFont, "Montserrat", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif),   //
+	edged             : ('Gruppo', cursive),
+	scripting         : ('Satisfy', cursive),
+	family-handwritten: ('Architects Daughter', cursive),
+	family-code       : (source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace),
+    //weight
+    light    : 300,
+    regular  : 400,
+    medium   : 500,
+    semi-bold: 600,
+    bold     : 700,
+);
+
+$palette: (
+	bg     : #1d1d1d,
+	fg     : #f2f2f2,
+	shadow : rgba(0, 0, 0, 0.5),
+	info   : #0080ff,
+	success: #4cd3e3,
+	warning: #f4e700,
+	danger : #f44a40,
+);
+
+$breakpoints: (
+	xlarge: '(min-width: 1680px)',
+	large : '(min-width: 1280px)',
+	medium: '(min-width: 980px)',
+	small : '(min-width: 736px)',
+	xsmall: '(min-width: 480px)'
+);

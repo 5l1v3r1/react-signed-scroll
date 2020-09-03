@@ -1,0 +1,35 @@
+[Scroll Type]
+    - Vertical
+    - Horizontal
+[Navigation]
+    - Mouse Wheel
+    - Mouse Drag
+    - Touch
+    - Arrow
+    - Dot
+[Functions]
+    - beforeChange
+    - afterChange
+
+How to disable default onHashCnage
+
+- https://dev.to/kpose/how-to-develop-and-publish-your-react-native-package-to-npm-22mo
+
+add eslint
+make dev environment
+
+[React]
+- https://reactjs.org/tutorial/tutorial.html
+- https://reactjs.org/docs/typechecking-with-proptypes.html
+
+[webpack]
+- https://webpack.js.org/concepts/
+- https://webpack.js.org/guides/
+- https://webpack.js.org/configuration/
+
+[eslint]
+- https://eslint.org/docs/user-guide/configuring
+
+[How to run eslint recursively on all the files in root directory]
+- https://stackoverflow.com/questions/36447910/how-to-lint-entire-folder-using-tslint
+- https://tips.tutorialhorizon.com/2017/05/04/how-to-run-eslint-recursively-on-all-the-files-in-root-directory-without-glob-patterns/

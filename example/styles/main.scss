@@ -1,0 +1,133 @@
+@import "libs/fonts";
+@import "libs/variables";
+@import "libs/functions";
+@import "libs/normalize";
+@import "libs/html5reset";
+@import "libs/mixins";
+@import "libs/predefined";
+
+@import "base/typography";
+@import "base/page";
+
+
+.app {
+    background: pink;
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    background: grey;
+    height: 4em;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+footer {
+    background: grey;
+    bottom: 0;
+    height: 4em;
+    position: fixed;
+    width: 100vw;
+    z-index: 2;
+}
+
+.app2 {
+    background: red;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 90%;
+}
+
+
+
+/*
+.main-wrapper {
+    transform-origin: top left;
+    &--rotate-anti-clockwise {
+        height: 100vw;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        position: absolute;
+        scrollbar-width: none;
+        transform: rotate(-90deg) translateX(-100vh);
+        width: 100vh;
+    }
+    &--rotate-clockwise {
+        height: 100vh;
+        transform: rotate(90deg) translateY(-100vh);
+        width: 100vw;
+    }
+}
+*/
+.main-wrapper {
+    transform-origin: top left;
+    &--rotate-anti-clockwise {
+        height: calc(100vw - (10 / 100 * 100vw));
+        overflow-x: hidden;
+        overflow-y: scroll;
+        transform: rotate(-90deg) translateX(-100vh);
+        width: 100vh;
+    }
+    &--rotate-clockwise {
+        height: 100vh;
+        transform: rotate(90deg) translateY(-100vh);
+        width: calc(100vw - (10 / 100 * 100vw));
+    }
+}
+
+.wrapper {
+    align-items: center;
+    background: blue;
+    display: flex;
+    height: 100%;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.signed-container {
+    &__sections {
+    display: flex;
+    /*padding: 4em 0;*/
+    /*min-height: 100%*/
+    }
+}
+
+.signed-section {
+    min-width: calc(100vw - (10 / 100 * 100vw));
+    min-height: 100%
+}
+#root {
+    height: 100vh;
+}
+
+.signed-section {
+    &--section1 {
+            background: #ff0000;
+        }
+    &--section2 {
+        background: #00ff00;
+    }
+    &--section3 {
+        background: #0000ff
+    }
+}
+
+.intro {
+    font-size: 4em;
+    & > span {
+        display: block;
+    }
+    &__name {
+        font-family: Rubik;
+    }
+    &__headline {
+        font-family: Gruppo;
+        font-size: 0.6em;
+        font-weight: 400;
+    }
+}
+

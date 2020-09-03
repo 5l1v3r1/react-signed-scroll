@@ -1,0 +1,25 @@
+html, 
+body {
+    min-height: 100vh;
+    min-width: 320px;
+}
+
+body {
+    @at-root {
+        *, 
+        *:before, 
+        *:after {
+            box-sizing: border-box;
+        }
+        img {
+            display: inline-block;
+        }
+        ul {
+            list-style-type: none;
+        }
+        a, button {
+            cursor: pointer;
+        }
+    }
+}
+

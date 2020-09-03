@@ -1,0 +1,120 @@
+{
+	"name": "react-signed-scroll",
+	"version": "1.0.0",
+	"description": "A react scrolling component",
+	"main": "index.js",
+	"author": "Alex Munene",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/51gn3d/react-signed-scroll.git"
+	},
+	"bugs": {
+		"url": "https://github.com/51gn3d/react-signed-scroll/issues"
+	},
+	"homepage": "https://51gn3d.github.io/react-signed-scroll",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"start": "webpack-dev-server --config webpack.config.dev.js",
+		"build": "webpack --config webpack.config.prod.js",
+		"eslint:fix": "eslint './**/*.js?(x)' --fix",
+		"eslint": "eslint './**/*.js?(x)'",
+		"prepublish": "./node_modules/.bin/babel ./src --out-dir ./dist"
+	},
+	"dependencies": {
+		"prop-types": "^15.7.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.10.5",
+		"@babel/core": "^7.10.4",
+		"@babel/plugin-proposal-class-properties": "^7.10.4",
+		"@babel/preset-env": "^7.10.4",
+		"@babel/preset-react": "^7.10.4",
+		"autoprefixer": "^9.8.5",
+		"babel-eslint": "^10.1.0",
+		"babel-loader": "^8.1.0",
+		"clean-webpack-plugin": "^3.0.0",
+		"cross-env": "^7.0.2",
+		"css-loader": "^3.6.0",
+		"eslint": "^7.4.0",
+		"eslint-config-airbnb": "^18.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.20.3",
+		"eslint-plugin-react-hooks": "^4.0.7",
+		"file-loader": "^6.0.0",
+		"html-webpack-plugin": "^4.3.0",
+		"mini-css-extract-plugin": "^0.9.0",
+		"node-sass": "^4.14.1",
+		"postcss-loader": "^3.0.0",
+		"prettier": "^2.0.5",
+		"sass-loader": "^9.0.2",
+		"style-loader": "^1.2.1",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env",
+			"@babel/preset-react"
+		],
+		"plugins": [
+			"@babel/plugin-proposal-class-properties"
+		]
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"node": true
+		},
+		"parser": "babel-eslint",
+		"parserOptions": {
+			"es6": true,
+			"ecmaVersion": 2020,
+			"ecmaFeatures": {
+				"jsx": true
+			},
+			"sourceType": "module"
+		},
+		"extends": [
+			"plugin:react/recommended",
+			"airbnb",
+			"prettier",
+			"prettier/react"
+		],
+		"plugins": [
+			"react",
+			"prettier"
+		],
+		"ignorePatterns": [
+			"docs",
+			"node_modules"
+		],
+		"rules": {
+			"no-console": "off",
+			"func-names": "off",
+			"no-plusplus": "off",
+			"no-unused-vars": "off",
+			"global-require": "off",
+			"no-param-reassign": "off",
+			"no-underscore-dangle": "off",
+			"import/no-dynamic-require": "off",
+			"prettier/prettier": [
+				"error",
+				{
+					"printWidth": 80,
+					"tabWidth": 4,
+					"useTabs": true,
+					"singleQuote": true,
+					"bracketSpacing": true,
+					"trailingComma": "es5"
+				}
+			]
+		}
+	}
+}
