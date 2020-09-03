@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 
 import logger from '../utils/logger';
 
-class Container extends React.Component {
+class SignedContainer extends React.Component {
 	constructor(props) {
 		super(props);
 
 		const {
-			debug,
-			options: { initialSectionIndex },
+			options: { debug, initialSectionIndex },
 		} = this.props;
 
-		this.log = logger(debug, 'Container');
 		this._container = null;
 		this._isVertical = null;
 		this._sectionsCount = 0;
@@ -22,6 +20,7 @@ class Container extends React.Component {
 			isTransitionOn: false,
 			activeSectionIndex: initialSectionIndex,
 		};
+		this.log = logger(debug, 'Container');
 	}
 
 	getChildContext() {
@@ -43,13 +42,13 @@ class Container extends React.Component {
 
 		const {
 			props: {
-				options: { scrollType, containerId, initialSectionIndex },
 				children,
+				options: { scrollDirection, containerId, initialSectionIndex },
 			},
 		} = this;
 
 		this._sectionsCount = children.length;
-		this._isVertical = scrollType === 'vertical';
+		this._isVertical = scrollDirection === 'vertical';
 		this._container = document.getElementById(containerId);
 
 		window.addEventListener('resize', this.onResize);
@@ -238,21 +237,19 @@ class Container extends React.Component {
 
 	render() {
 		const {
+			_isVertical,
 			_sectionsCount,
 			state: { translateDistance },
 			props: {
+				children,
 				options: {
-					scrollType,
 					transitionDelay,
 					transitionFunction,
 					containerId,
 					containerClassName,
 				},
-				children,
 			},
 		} = this;
-
-		const isVertical = scrollType === 'vertical';
 
 		return (
 			<div
@@ -260,8 +257,8 @@ class Container extends React.Component {
 				className={containerClassName}
 				style={{
 					height: '100%',
-					overflowX: isVertical ? 'hidden' : 'scroll',
-					overflowY: isVertical ? 'scroll' : 'hidden',
+					overflowX: _isVertical ? 'hidden' : 'scroll',
+					overflowY: _isVertical ? 'scroll' : 'hidden',
 					scrollbarWidth: 'none',
 					width: '100%',
 				}}
@@ -270,16 +267,16 @@ class Container extends React.Component {
 					className={`${containerClassName}__sections`}
 					style={{
 						display: 'flex',
-						flexDirection: isVertical ? 'column' : 'row',
-						height: isVertical
+						flexDirection: _isVertical ? 'column' : 'row',
+						height: _isVertical
 							? `calc(100% * ${_sectionsCount})`
 							: '100%',
-						transform: isVertical
+						transform: _isVertical
 							? `translateY(${translateDistance}px)`
 							: `translateX(${translateDistance}px)`,
 						transition: `all ${transitionDelay}ms ${transitionFunction}`,
 						width:
-							scrollType === 'vertical'
+							_isVertical
 								? '100%'
 								: `calc(100% * ${_sectionsCount})`,
 					}}
@@ -291,12 +288,10 @@ class Container extends React.Component {
 	}
 }
 
-Container.defaultProps = {
-	debug: false,
+SignedContainer.defaultProps = {
 	options: {
-		// General
-		scrollType: 'vertical',
-		// Container Related Options
+		debug: false,
+		scrollDirection: 'vertical',
 		containerId: 'signed-container',
 		containerClassName: 'signed-container',
 		// Section Related Options
@@ -312,11 +307,10 @@ Container.defaultProps = {
 	sectionPaddingBottom: '0',
 };
 
-Container.propTypes = {
-	debug: PropTypes.bool,
+SignedContainer.propTypes = {
 	options: PropTypes.shape({
-		scrollType: PropTypes.oneOf(['horizontal', 'vertical']),
-		// Container Related Options
+		debug: PropTypes.bool,
+		scrollDirection: PropTypes.oneOf(['horizontal', 'vertical']),
 		containerId: PropTypes.string,
 		containerClassName: PropTypes.string,
 		// Section Related Options
@@ -333,11 +327,11 @@ Container.propTypes = {
 	sectionPaddingBottom: PropTypes.string,
 };
 
-Container.childContextTypes = {
+SignedContainer.childContextTypes = {
 	debug: PropTypes.bool,
 	sectionClassName: PropTypes.string,
 	sectionPaddingTop: PropTypes.string,
 	sectionPaddingBottom: PropTypes.string,
 };
 
-export default Container;
+export default SignedContainer;

@@ -1,4 +1,4 @@
-import Container from './components/Container';
-import Section from './components/Section';
+import SignedContainer from './components/SignedContainer';
+import SignedSection from './components/SignedSection';
 
-export { Container, Section };
+export { SignedContainer, SignedSection };

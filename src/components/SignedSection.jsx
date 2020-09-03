@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Logger from '../utils/logger';
 
-class Section extends React.Component {
+class SignedSection extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -64,16 +64,16 @@ class Section extends React.Component {
 	}
 }
 
-Section.propTypes = {
+SignedSection.propTypes = {
 	id: PropTypes.string,
 	debug: PropTypes.bool,
 	children: PropTypes.node,
 };
 
-Section.contextTypes = {
+SignedSection.contextTypes = {
 	sectionClassName: PropTypes.string,
 	sectionPaddingTop: PropTypes.string,
 	sectionPaddingBottom: PropTypes.string,
 };
 
-export default Section;
+export default SignedSection;

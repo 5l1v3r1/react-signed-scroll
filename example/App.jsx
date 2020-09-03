@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Container, Section } from '../build';
+import { SignedContainer, SignedSection } from '../src';
 
 const App = () => (
-	<Container
-		debug
+	<SignedContainer
 		options={{
-			scrollType: 'horizontal',
+			debug: true,
+			scrollDirection: 'horizontal',
 
 			transitionDelay: 500,
 			transitionFunction: 'linear',
@@ -21,10 +21,10 @@ const App = () => (
 			initialSectionIndex: 0,
 		}}
 	>
-		<Section className="section1" />
-		<Section className="section2" />
-		<Section className="section3" />
-	</Container>
+		<SignedSection className="section1" />
+		<SignedSection className="section2" />
+		<SignedSection className="section3" />
+	</SignedContainer>
 );
 
 export default App;

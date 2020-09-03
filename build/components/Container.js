@@ -202,12 +202,12 @@ var Container = /*#__PURE__*/function (_React$Component) {
       this.log('componentDidMount()');
       var _this$props4 = this.props,
           _this$props4$options = _this$props4.options,
-          scrollType = _this$props4$options.scrollType,
+          scrollDirection = _this$props4$options.scrollDirection,
           containerId = _this$props4$options.containerId,
           initialSectionIndex = _this$props4$options.initialSectionIndex,
           children = _this$props4.children;
       this._sectionsCount = children.length;
-      this._isVertical = scrollType === 'vertical';
+      this._isVertical = scrollDirection === 'vertical';
       this._container = document.getElementById(containerId);
       window.addEventListener('resize', this.onResize);
       window.addEventListener('mousewheel', this.onMouseWheel, false);
@@ -257,13 +257,13 @@ var Container = /*#__PURE__*/function (_React$Component) {
           translateDistance = this.state.translateDistance,
           _this$props5 = this.props,
           _this$props5$options = _this$props5.options,
-          scrollType = _this$props5$options.scrollType,
+          scrollDirection = _this$props5$options.scrollDirection,
           transitionDelay = _this$props5$options.transitionDelay,
           transitionFunction = _this$props5$options.transitionFunction,
           containerId = _this$props5$options.containerId,
           containerClassName = _this$props5$options.containerClassName,
           children = _this$props5.children;
-      var isVertical = scrollType === 'vertical';
+      var isVertical = scrollDirection === 'vertical';
       return /*#__PURE__*/_react["default"].createElement("div", {
         id: containerId,
         className: containerClassName,
@@ -282,7 +282,7 @@ var Container = /*#__PURE__*/function (_React$Component) {
           height: isVertical ? "calc(100% * ".concat(_sectionsCount, ")") : '100%',
           transform: isVertical ? "translateY(".concat(translateDistance, "px)") : "translateX(".concat(translateDistance, "px)"),
           transition: "all ".concat(transitionDelay, "ms ").concat(transitionFunction),
-          width: scrollType === 'vertical' ? '100%' : "calc(100% * ".concat(_sectionsCount, ")")
+          width: scrollDirection === 'vertical' ? '100%' : "calc(100% * ".concat(_sectionsCount, ")")
         }
       }, children));
     }
@@ -295,7 +295,7 @@ Container.defaultProps = {
   debug: false,
   options: {
     // General
-    scrollType: 'vertical',
+    scrollDirection: 'vertical',
     // Container Related Options
     containerId: 'signed-container',
     containerClassName: 'signed-container',
@@ -313,7 +313,7 @@ Container.defaultProps = {
 Container.propTypes = {
   debug: _propTypes["default"].bool,
   options: _propTypes["default"].shape({
-    scrollType: _propTypes["default"].oneOf(['horizontal', 'vertical']),
+    scrollDirection: _propTypes["default"].oneOf(['horizontal', 'vertical']),
     // Container Related Options
     containerId: _propTypes["default"].string,
     containerClassName: _propTypes["default"].string,
